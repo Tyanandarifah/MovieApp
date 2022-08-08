@@ -15,7 +15,7 @@ class GetMovieDetailsUseCase(
                 data.body()?.let {
                     emit(BaseResponse.success(it))
                 } ?: run {
-                    emit(BaseResponse.failureBackend<MovieDetailsService>(
+                    emit(BaseResponse.failureBackend<id.indocyber.common.entity.movie_details.MovieDetailsResponse>(
                         null
                     ))
                 }

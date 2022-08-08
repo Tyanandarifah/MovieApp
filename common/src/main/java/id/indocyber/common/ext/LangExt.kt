@@ -37,4 +37,4 @@ class SingleLiveEvent<T> : MutableLiveData<T>() {
 }
 
 fun <T> singleLiveEventOf() = SingleLiveEvent<T>()
-fun <T> mutableLiveData() = MutableLiveData<T>()
+fun <T> mutableLiveDataOf() = MutableLiveData<T>()
