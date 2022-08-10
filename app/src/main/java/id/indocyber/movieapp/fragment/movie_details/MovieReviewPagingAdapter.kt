@@ -9,7 +9,14 @@ import id.indocyber.common.entity.discover_movie.DiscoverMovie
 import id.indocyber.common.entity.movie_review.MovieReview
 import id.indocyber.movieapp.databinding.MovieReviewItemLayoutBinding
 
-class MovieReviewPagingAdapter : PagingDataAdapter<MovieReview, MovieReviewViewHolder>(differ) {
+class MovieReviewPagingAdapter : PagingDataAdapter<MovieReview, MovieReviewPagingAdapter.MovieReviewViewHolder>(differ) {
+    class MovieReviewViewHolder(
+        private val binding: MovieReviewItemLayoutBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(review: MovieReview?) {
+            binding.data = review
+        }
+    }
     override fun onBindViewHolder(holder: MovieReviewViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
@@ -37,11 +44,4 @@ class MovieReviewPagingAdapter : PagingDataAdapter<MovieReview, MovieReviewViewH
         }
     }
 
-}
-class MovieReviewViewHolder(
-    private val binding: MovieReviewItemLayoutBinding
-) : RecyclerView.ViewHolder(binding.root) {
-    fun bind(review: MovieReview?) {
-        binding.data = review
-    }
 }

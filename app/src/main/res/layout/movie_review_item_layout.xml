@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:custom="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="data"
@@ -10,10 +9,12 @@
         <import type="id.indocyber.api_service.Constants"/>
     </data>
     <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        custom:cardElevation="5dp"
-        custom:cardUseCompatPadding="true">
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -23,9 +24,9 @@
                 android:id="@+id/img_avatar"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                custom:loadImageCircled="@{data.authorDetails.avatarPath.startsWith(`/http`) ? data.authorDetails.avatarPath.substring(1) : Constants.IMAGE_PREFIX+data.authorDetails.avatarPath}"
-                custom:layout_constraintStart_toStartOf="parent"
-                custom:layout_constraintTop_toTopOf="parent"/>
+                custom:loadImageCircled="@{data.authorDetails.avatarPath.startsWith(`/http`)   ? data.authorDetails.avatarPath.substring(1) : Constants.IMAGE_PREFIX+data.authorDetails.avatarPath}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_username"
@@ -35,18 +36,18 @@
                 android:text="@{data.authorDetails.username}"
                 android:textSize="18sp"
                 android:textColor="@color/black"
-                custom:layout_constraintStart_toEndOf="@id/img_avatar"
+                app:layout_constraintStart_toEndOf="@+id/img_avatar"
                 custom:layout_constraintEnd_toEndOf="parent"
-                custom:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="@{data.content}"
-                custom:layout_constraintEnd_toEndOf="parent"
-                custom:layout_constraintStart_toEndOf="@id/img_avatar"
-                custom:layout_constraintTop_toBottomOf="@id/tv_username"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/img_avatar"
+                app:layout_constraintTop_toBottomOf="@id/tv_username"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
